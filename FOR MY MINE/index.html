@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Dear Wife</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5e2c7;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 20px;
+            font-size: 36px;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #love-letter {
+            font-size: 20px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #love-note {
+            font-style: italic;
+            font-size: 28px;
+            color: #ff66b2;
+            margin-top: 20px;
+        }
+
+        #image-container {
+            margin-top: 30px;
+        }
+
+        #girlfriend-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #888888;
+            cursor: pointer;
+        }
+
+        #button-container {
+            margin-top: 20px;
+        }
+
+        #love-button {
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #love-button:hover {
+            background-color: #e60073;
+        }
+
+        #hidden-message {
+            display: none;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #animation-container {
+            position: relative;
+        }
+
+        #floating-hearts {
+            position: absolute;
+            animation: float 4s infinite;
+        }
+        /* Add this CSS for image animation */
+        #girlfriend-image:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(0, -10px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            transform: rotate(-45deg);
+            animation: heartbeat 0.8s infinite alternate;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 7px;
+            width: 7px;
+            height: 12px;
+            background-color: #ff66b2;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(-90deg);
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>To My Dear Wife</h1>
+    </header>
+
+    <div id="container">
+        <div id="love-letter">
+            <p>My Dearest,</p>
+            <p>Just wanted to take a moment to express my feelings for you. You are the sunshine in my life, the reason I smile every day, and the love of my life.</p>
+            <p>Your beauty, both inside and out, never ceases to amaze me. I cherish every moment we spend together and look forward to many more adventures with you.</p>
+            <p>You're not just my girlfriend; you're my best friend, my confidant, and my greatest love.</p>
+            <p id="love-note">I love you more than words can ever convey.</p>
+        </div>
+
+        <div id="image-container">
+            <img id="girlfriend-image" src="Mineni.jpeg" alt="Mineni's Photo" onclick="showHearts(event)">
+        </div>
+
+        <div id="button-container">
+            <button id="love-button" onclick="showMessage()">Click to reveal my heart</button>
+        </div>
+
+        <p id="hidden-message">You mean everything to me, and I'm so grateful to have you in my life. I love you now and forever.
+            <br> I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE you! <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE you! <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>I LOVE YOU <br>AND I LOVE YOU
+        </p>
+
+        <div id="animation-container">
+            <div id="floating-hearts">
+                <div class="heart" style="top: 30px; left: 30px;"></div>
+                <div class="heart" style="top: 40px; left: 60px;"></div>
+                <div class="heart" style="top: 60px; left: 90px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            var message = document.getElementById("hidden-message");
+            message.style.display = "block";
+        }
+
+        function showHearts(event) {
+            var animationContainer = document.getElementById("animation-container");
+            var x = event.clientX - animationContainer.getBoundingClientRect().left;
+            var y = event.clientY - animationContainer.getBoundingClientRect().top;
+            var heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.left = x + "px";
+            heart.style.top = y + "px";
+            animationContainer.appendChild(heart);
+            setTimeout(function () {
+                heart.remove();
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
